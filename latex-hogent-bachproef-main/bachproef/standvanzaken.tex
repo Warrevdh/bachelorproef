@@ -1,0 +1,243 @@
+\chapter{\IfLanguageName{dutch}{Stand van zaken}{State of the art}}%
+\label{ch:stand-van-zaken}
+
+% Tip: Begin elk hoofdstuk met een paragraaf inleiding die beschrijft hoe
+% dit hoofdstuk past binnen het geheel van de bachelorproef. Geef in het
+% bijzonder aan wat de link is met het vorige en volgende hoofdstuk.
+
+% Pas na deze inleidende paragraaf komt de eerste sectiehoofding.
+\section{Inleiding}
+
+De evolutie van kalendersoftware heeft een significante transformatie ondergaan sinds de dagen van fysieke kalenders. In het verleden was men beperkt tot handgeschreven notities en afspraken in papieren agenda's, wat vele beperkingen met zich meebracht, voornamelijk op het gebied van toegankelijkheid en flexibiliteit. Met de opkomst van digitale technologieën zijn deze traditionele methoden grotendeels vervangen door digitale kalenders, die een reeks voordelen bieden die verder gaan dan eenvoudig gemak.
+
+\subsection{Voordelen van Digitale Kalenders}
+Digitale kalenders bieden ongeëvenaarde voordelen die hun wijdverbreide adoptie hebben aangedreven:
+\begin{itemize}
+    \item \textbf{Toegankelijkheid:} Digitale kalenders kunnen overal en altijd worden geraadpleegd, mits er internetverbinding is, waardoor gebruikers hun schema's gemakkelijker kunnen beheren en aanpassen.
+    \item \textbf{Synchronisatie:} Gebruikers kunnen afspraken en evenementen synchroniseren over meerdere apparaten en platforms heen, wat zorgt voor consistentie en helpt bij het voorkomen van planningsconflicten.
+    \item \textbf{Integratie:} Integratie met andere digitale tools en applicaties verhoogt de functionaliteit, zoals het automatisch instellen van herinneringen en het delen van afspraken met anderen.
+\end{itemize}
+
+\subsection{Uitdagingen bij Digitale Kalenders}
+Ondanks de voordelen zijn er verschillende uitdagingen die aandacht vereisen:
+\begin{itemize}
+    \item \textbf{Overvloed aan Opties:} De veelheid aan beschikbare kalendersoftware kan het voor gebruikers moeilijk maken om te kiezen welke het beste aan hun behoeften voldoet.
+    \item \textbf{Beperkingen in Synchronisatie:} Niet alle digitale kalenders ondersteunen naadloze synchronisatie, vooral wanneer verschillende systemen worden gebruikt die mogelijk niet compatibel zijn.
+    \item \textbf{Bedrijfsspecifieke Software:} Veel bedrijven ontwikkelen hun eigen kalendersystemen, die niet altijd gemakkelijk kunnen worden geïntegreerd met andere systemen zonder aanzienlijke aanpassingen.
+\end{itemize}
+
+\subsection{Rol van API's in de Integratie}
+API's (Application Programming Interfaces) spelen een cruciale rol in het overbruggen van de kloof tussen verschillende kalendersystemen. Ze stellen ontwikkelaars in staat om functies van een bepaalde software toegankelijk te maken voor andere toepassingen, wat essentieel is voor het realiseren van interoperabiliteit en uitbreidbaarheid tussen verschillende platforms. Door het gebruik van API's kunnen ontwikkelaars:
+\begin{itemize}
+    \item \textbf{Gegevens Synchroniseren:} Zorgen voor real-time synchronisatie van gegevens tussen verschillende kalenderdiensten.
+    \item \textbf{Functionaliteit Uitbreiden:} Nieuwe functies en capaciteiten toevoegen die niet oorspronkelijk beschikbaar waren in een stand-alone systeem.
+    \item \textbf{Aanpassingsvermogen Verbeteren:} Software aanpassen aan de specifieke behoeften van een organisatie zonder de onderliggende systemen volledig te hoeven herontwerpen.
+\end{itemize}
+
+Dit hoofdstuk gaat dieper in op hoe deze aspecten van digitale kalendersoftware de moderne werkomgeving vormgeven en de implicaties voor zowel eindgebruikers als ontwikkelaars.
+
+
+
+\subsection{Populaire Opties}
+
+\subsubsection{Google Calendar}
+Google Calendar, een product van Google, is een zeer bekende tool voor het plannen van evenementen en taken. Dit platform onderscheidt zich door zijn gebruiksgemak en de uitgebreide functionaliteiten die het biedt. Gebruikers kunnen meerdere kalenders beheren en synchroniseren via een synchronisatielink, wat de coördinatie tussen verschillende gebruikers en groepen vergemakkelijkt. De toegankelijkheid van de software over verschillende platformen heen, in combinatie met de enige vereiste van een Google Account om te starten, maakt het een toegankelijke keuze voor zowel persoonlijke als professionele organisatie. Hoewel de basisfuncties van Google Calendar gratis zijn, vereist toegang tot de Google Calendar API betaling per verzoek, wat belangrijk is voor ontwikkelaars die de API in hun applicaties willen integreren.
+
+\subsubsection{Microsoft Outlook Calendar}
+Net als Google Calendar, is Microsoft Outlook Calendar een prominente speler onder de kalenderapplicaties, bekend om zijn naadloze integratie met andere Microsoft-producten zoals Microsoft Teams. Deze integratie biedt een aanzienlijk voordeel voor gebruikers die vertrouwen op een Microsoft-ecosysteem, waardoor het eenvoudiger wordt om afspraken en taken over verschillende applicaties heen te synchroniseren en te beheren. De mogelijkheid om diverse externe applicaties te integreren vergroot de functionaliteit en maakt Microsoft Outlook Calendar een krachtige tool voor zakelijke gebruikers.
+
+\subsubsection{Calendly}
+Calendly onderscheidt zich als een specifiek ontworpen tool voor het plannen van vergaderingen en evenementen, met functies zoals polls die het mogelijk maken om efficiënt een overeenkomst te bereiken over datums en tijden. De integratie met andere kalendersystemen zoals Google Calendar, Office 365, Exchange en iCloud centraliseert evenementenbeheer en verbetert de zichtbaarheid van beschikbaarheid. Calendly biedt meerdere abonnementsplannen, waaronder een gratis optie, die verschillen in functies en mogelijkheden om aan de behoeften van verschillende gebruikers te voldoen. Echter, zoals aangegeven in de literatuur, kan de interface van Calendly uitdagend zijn in gebruik, met een beperking op het aantal opties in polls en mogelijke gebruiksonvriendelijkheid bij het uitvoeren van eenvoudige taken \autocite{Kopcsanyi2023}.
+
+
+\section{Kalendersynchronisatie}
+
+Kalendersynchronisatie is een fundamentele functie binnen de meeste moderne kalenderapplicaties, die essentieel is voor effectieve tijdbeheer en planning in zowel persoonlijke als professionele contexten. Deze functie stelt gebruikers in staat om geplande evenementen en taken die in één applicatie zijn ingevoerd, automatisch te laten overnemen door andere applicaties. Deze interoperabiliteit is vooral belangrijk voor individuen en bedrijven die meerdere kalendersystemen en applicaties gebruiken.
+
+\subsection{Functionaliteit en Mechanisme}
+De kern van kalendersynchronisatie ligt in haar vermogen om verschillende agenda's naadloos met elkaar te verbinden. Wanneer een gebruiker een afspraak of taak toevoegt aan een primaire kalender, zorgt synchronisatie ervoor dat deze informatie direct wordt weergegeven in alle geassocieerde kalenders. Dit wordt vaak bereikt via cloud-gebaseerde diensten of gespecialiseerde synchronisatiesoftware die gebruik maakt van API's van derde partijen om wijzigingen in real-time door te voeren.
+
+\subsection{Voordelen van Synchronisatie}
+De voordelen van kalendersynchronisatie zijn veelzijdig:
+\begin{itemize}
+    \item \textbf{Verhoogde Productiviteit:} Door alle kalenderinformatie centraal te beheren, kunnen gebruikers hun tijd efficiënter indelen, dubbele boekingen vermijden en overlappende verplichtingen beter beheren.
+    \item \textbf{Verbeterde Communicatie:} Kalendersynchronisatie vergemakkelijkt de communicatie binnen teams door iedereen up-to-date te houden over geplande meetings en evenementen, wat essentieel is voor het coördineren van inspanningen en het halen van deadlines.
+    \item \textbf{Gecentraliseerde Planning:} Het centraliseren van evenementen en taken maakt het eenvoudiger voor beheerders en teamleden om de beschikbaarheid te consulteren en deelnemers voor bijeenkomsten of projecttaken te plannen.
+\end{itemize}
+
+\subsection{Uitdagingen in Synchronisatie}
+Hoewel kalendersynchronisatie talrijke voordelen biedt, zijn er ook uitdagingen. De grootste uitdaging is de compatibiliteit tussen verschillende kalendersystemen, die elk hun eigen formaat en synchronisatiemethoden kunnen hebben. Dit kan leiden tot inconsistenties en fouten in de data, vooral als de synchronisatiefuncties niet correct zijn geconfigureerd of als er beperkingen zijn opgelegd door de API's van de gebruikte platforms.
+
+Kalendersynchronisatie speelt een cruciale rol in de hedendaagse digitale infrastructuur door het ondersteunen van complexe en geïntegreerde planningseisen van moderne bedrijven en individuen. Het oplossen van de synchronisatie-uitdagingen en het maximaliseren van de voordelen zal een sleutelrol spelen in het verbeteren van operationele efficiëntie en persoonlijke productiviteit \autocite{Xhafa2016}.
+
+
+\section{Technische uitdagingen bij integratie}
+\subsection{Authenticatie en autorisatie}
+Authenticatie is het proces van het valideren van de identiteit van een gebruiker \autocite{Lal2016}. Het doel van authenticatie is om ervoor te zorgen dat alleen geautoriseerde gebruikers toegang krijgen tot bepaalde systemen, gegevens, of functies binnen een softwareapplicatie. Dit kan worden bereikt door verschillende methoden, zoals wachtwoorden, biometrische gegevens, tokens, of meer geavanceerde technieken zoals multi-factor authenticatie (MFA).
+
+Eenmaal geauthenticeerd, volgt het proces van autorisatie, dat bepaalt welke middelen of acties een gebruiker mag uitvoeren binnen het systeem. Autorisatie is een cruciaal onderdeel van toegangscontrole en helpt bij het beperken van gebruikersrechten tot alleen de middelen die noodzakelijk zijn voor hun rol. Dit is vooral belangrijk in softwareapplicaties die gevoelige informatie beheren of in omgevingen waarin verschillende niveaus van toegang vereist zijn voor verschillende gebruikersgroepen.
+
+In de context van het integreren van kalender-API's, is het essentieel om robuuste authenticatie- en autorisatiemechanismen te implementeren. Veel kalender-API's, zoals die van Google en Microsoft, maken gebruik van OAuth 2.0 voor authenticatie, wat een veilige en gestandaardiseerde methode is voor het verlenen van beperkte toegang tot API's zonder dat gebruikers hun wachtwoord hoeven te delen. OAuth 2.0 stelt gebruikers in staat om toegang te geven tot hun kalendergegevens aan een applicatie zonder dat de applicatie toegang heeft tot hun inloggegevens.
+
+Het beheren van toegangsrechten via autorisatie kan complex worden, vooral wanneer verschillende gebruikers verschillende rechten hebben op verschillende kalenders of evenementen. Het is belangrijk dat de applicatie rekening houdt met deze complexiteit en passende mechanismen biedt om autorisatie op een veilige en gebruiksvriendelijke manier te beheren.
+
+Een goed ontwerp voor authenticatie en autorisatie is dus van cruciaal belang om de veiligheid en integriteit van het systeem te waarborgen, terwijl het ook de gebruikerservaring verbetert door de complexiteit van toegang tot verschillende kalenders te verminderen.
+
+\subsection{OAuth 2.0}
+OAuth 2.0\footnote{https://auth0.com/} is het industrienorm-protocol voor autorisatie. Het richt zich op het vereenvoudigen van de ontwikkeling voor clientontwikkelaars, terwijl het specifieke autorisatiestromen biedt voor webapplicaties, desktopapplicaties, mobiele telefoons en apparaten in de woonkamer. Deze specificatie en de uitbreidingen ervan worden ontwikkeld binnen de IETF OAuth Working Group \autocite{Parecki2012}.
+
+
+
+\newpage
+
+
+
+\subsection{Google Calendar}
+\subsubsection{Google One Tap}
+Google One Tap maakt het mogelijk voor gebruikers om eenvoudig in te loggen op verschillende websites en applicaties met hun Google-account. Dit systeem biedt een naadloze gebruikerservaring, waarbij gebruikers met hun toestemming verschillende soorten informatie kunnen delen met andere applicaties.
+
+\subsubsection{OAuth 2.0 en autorisatie}
+Bij het gebruik van OAuth 2.0 voor autorisatie toont Google een toestemmingsscherm aan de gebruiker. Dit scherm geeft een overzicht van het project, de bijbehorende beleidsregels en de gevraagde autorisatiescopes voor toegang. Het configuratieproces van het OAuth-toestemmingsscherm is cruciaal omdat het bepaalt wat er aan gebruikers en app-beoordelaars wordt getoond, en het helpt ook bij de registratie van de app voor latere publicatie.
+
+\subsubsection{Definiëren en valideren van autorisatiescopes}
+Autorisatiescopes specificeren het niveau van toegang dat aan een applicatie wordt verleend:
+\begin{itemize}
+    \item Deze scopes zijn essentieel omdat ze bepalen met welke Google Workspace-gegevens de app kan werken, inclusief de gegevens van Google-accounts van gebruikers.
+    \item Tijdens de installatie van de app wordt gebruikers gevraagd om de gebruikte scopes te valideren. Dit is een belangrijk moment omdat gebruikers hier beslissen of ze de gevraagde toegang willen toestaan.
+\end{itemize}
+
+\subsubsection{Best practices voor scope selectie}
+Het kiezen van nauwkeurig gedefinieerde en beperkte scopes vergroot de kans dat gebruikers toegang verlenen aan de applicatie. Dit niet alleen verbetert de veiligheid van de gebruikersgegevens, maar verbetert ook de gebruikerservaring door te zorgen voor duidelijkheid en transparantie over welke informatie wordt gedeeld:
+\begin{itemize}
+    \item Beperkte scopes zorgen ervoor dat de app alleen toegang heeft tot de strikt noodzakelijke gegevens.
+    \item Duidelijke communicatie over de gebruikte scopes helpt gebruikers bij het maken van een geïnformeerde keuze.
+\end{itemize}
+
+\subsubsection{Google API rate limiting}
+Google API's implementeren rate limiting om de stabiliteit en beschikbaarheid van hun diensten te waarborgen door quota's toe te passen. Deze beperken het aantal verzoeken dat binnen een bepaalde tijd mag worden gemaakt.
+\begin{itemize}
+    \item \textbf{Per-user limits}: Bedoeld om individueel misbruik te voorkomen zonder andere gebruikers te beïnvloeden.
+    \item \textbf{Server-side applications}: Verhoogde quota's mogelijk voor applicaties die grotere capaciteit vereisen.
+    \item \textbf{Exponential backoff}: Aanbevolen methode voor het opnieuw proberen van verzoeken na quota overschrijdingen.
+\end{itemize}
+
+
+
+\newpage
+
+
+
+\subsection{Microsoft Outlook}
+\subsubsection{Registratie van de applicatie}
+Om Microsoft's API's te gebruiken, moet een applicatie eerst geregistreerd worden in Microsoft Azure Active Directory (Azure AD). Dit proces gebeurt via het Microsoft Azure-portaal, waar essentiële details zoals de naam van de applicatie en de redirect URI's worden ingevuld, die cruciaal zijn voor het OAuth 2.0 authenticatieproces.
+
+\subsubsection{OAuth 2.0 flows}
+Microsoft ondersteunt diverse OAuth 2.0 authenticatieflows:
+\begin{itemize}
+    \item \textbf{Authorization code flow}: Voor server-side webapplicaties die een autorisatiecode omzetten in een toegangstoken.
+    \item \textbf{Implicit flow}: Voor client-side webapps die in de browser draaien.
+    \item \textbf{Client credentials flow}: Voor server-naar-server communicatie.
+    \item \textbf{Device code flow}: Voor apparaten zonder webbrowser.
+    \item \textbf{On-Behalf-Of flow}: Voor applicaties die handelen namens een gebruiker.
+\end{itemize}
+
+\subsubsection{Authenticatieproces}
+\begin{enumerate}
+    \item \textbf{Authenticatieverzoek}: De applicatie stuurt de gebruiker naar de Microsoft login pagina met parameters die de OAuth flow specificeren.
+    \item \textbf{Gebruiker Logt In}: Gebruikersinvoer van Microsoft-accountgegevens.
+    \item \textbf{Toestemming}: De gebruiker wordt gevraagd om toestemming voor de aangevraagde scopes.
+    \item \textbf{Autorisatiecode}: Microsoft stuurt de gebruiker terug naar de applicatie met een autorisatiecode.
+    \item \textbf{Token exchange}: De autorisatiecode wordt ingewisseld voor een toegangstoken.
+    \item \textbf{API-toegang}: Met het toegangstoken kan de applicatie Microsoft API's benaderen.
+\end{enumerate}
+
+\subsubsection{Gebruikerservaring van de Ontwikkelaar}
+Ontwikkelaars profiteren van een naadloze en intuïtieve ervaring bij het integreren van Microsoft's authenticatiesystemen door:
+\begin{itemize}
+    \item \textbf{Uitgebreide documentatie}: Microsoft biedt grondige documentatie en handleidingen.
+    \item \textbf{Ontwikkelaarsondersteuning en community}: Toegang tot een actieve gemeenschap en diverse ondersteuningsopties.
+    \item \textbf{Gebruiksvriendelijke ontwikkelaarstools}: Tools in de Azure-portal vereenvoudigen het beheer van applicatie-instellingen.
+    \item \textbf{Veiligheid en compliance}: Robuuste beveiligingsfeatures helpen bij het voldoen aan industrienormen.
+    \item \textbf{Naadloze integratie met andere Microsoft-diensten}: Verbetert efficiëntie en synergie tussen diensten.
+\end{itemize}
+
+\subsubsection{Microsoft API rate limiting}
+
+Microsoft past rate limiting toe via de Graph API, die cruciaal is voor het werken met Microsoft 365 diensten.
+\begin{itemize}
+    \item \textbf{Throttling limits}: Gebaseerd op het aantal verzoeken over een bepaalde tijdsperiode.
+    \item \textbf{Best practices}: Gebruik van exponential backoff en aandacht voor response headers die rate limit informatie bevatten.
+\end{itemize}
+
+
+
+\newpage
+
+
+
+\subsection{Calendly}
+Om de Calendly API te gebruiken, is het noodzakelijk om eerst een developer account aan te maken bij Calendly. Dit gebeurt via het Calendly development portaal. Tijdens dit proces registreer je je applicatie en vul je belangrijke details in zoals de naam van de applicatie, de beschrijving, en de callback URL's die essentieel zijn voor het OAuth-authenticatieproces.
+
+\subsubsection{OAuth 2.0 authenticatieproces}
+Na registratie kunnen ontwikkelaars en gebruikers inloggen op de applicatie met hun Calendly-account via een OAuth 2.0 autorisatieproces:
+\begin{enumerate}
+    \item De gebruiker wordt omgeleid naar een inlogpagina van Calendly.
+    \item Na succesvolle authenticatie wordt de gebruiker teruggeleid naar de applicatie met een toegangstoken.
+\end{enumerate}
+
+\subsubsection{Gebruikersprivacy en transparantie}
+Een belangrijk aspect van de integratie van de Calendly API is dat autorisatiescopes niet worden getoond wanneer gebruikers inloggen via de geregistreerde applicatie. Dit kan leiden tot zorgen over privacy en transparantie, aangezien gebruikers normaal gesproken de mogelijkheid hebben om te bekijken en te beheren welke soorten toegang ze verlenen aan een applicatie.
+
+\subsubsection{Aanbevelingen voor ontwikkelaars}
+Het is aan te raden voor ontwikkelaars om duidelijk te communiceren welke soorten gegevens toegankelijk zullen zijn via de applicatie en hoe deze zullen worden gebruikt. Dit kan worden geadresseerd in de gebruikersinterface van de applicatie of via een privacybeleid dat toegankelijk is voor de gebruiker voordat deze toestemming geeft.
+
+\subsubsection{Beveiliging van gegevens}
+Het correct beheren van toegangstokens en het zorgen voor beveiligde opslag en overdracht van gegevens zijn essentieel om de veiligheid van de gebruikersgegevens te waarborgen. Dit omvat:
+\begin{itemize}
+    \item Het regelmatig vernieuwen van tokens.
+    \item Het implementeren van passende beveiligingsmaatregelen tegen ongeautoriseerde toegang tot gevoelige gegevens.
+\end{itemize}
+
+\subsubsection{Calendly API rate limiting}
+
+Calendly hanteert rate limiting om te voorkomen dat hun systemen worden overbelast door een te hoog aantal verzoeken.
+\begin{itemize}
+    \item \textbf{Limits}: Vastgesteld op een bepaald aantal verzoeken per minuut, afhankelijk van het gebruikersabonnement en de API-endpoint.
+    \item \textbf{Handling limits}: Advies om retry-logic met delay te implementeren na ontvangst van een 429 Too Many Requests response.
+\end{itemize}
+
+
+\section{Privacy en Veiligheid}
+
+De integratie van kalender-API's in softwareapplicaties vereist een diepgaande overweging van privacy en veiligheid. Dit deel van de studie onderzoekt de huidige eisen en best practices voor het beschermen van gebruikersgegevens, alsmede de potentiële beveiligingsrisico's die dergelijke integraties met zich mee kunnen brengen.
+
+\subsection{Gegevensbescherming}
+
+De bescherming van persoonlijke gegevens is een primordiale zorg bij het integreren van externe API's zoals die van Google Calendar, Microsoft Outlook, en Calendly. De volgende best practices zijn cruciaal:
+
+\begin{itemize}
+    \item \textbf{Data Minimisatie:} Beperk de hoeveelheid verzamelde en opgeslagen gegevens tot wat strikt noodzakelijk is voor de functionaliteit van de applicatie.
+    \item \textbf{Toegangscontrole:} Zorg ervoor dat alleen geautoriseerde gebruikers en systemen toegang hebben tot gevoelige gegevens. Dit omvat het implementeren van robuuste authenticatie- en autorisatieprotocollen.
+    \item \textbf{Encryptie:} Gebruik sterke encryptie om gegevens te beschermen tijdens het opslaan en overdragen, om zo de kans op datalekken en onderschepping te minimaliseren.
+    \item \textbf{Compliance met Regelgeving:} Voldoe aan relevante gegevensbeschermingsregelgeving zoals de Algemene Verordening Gegevensbescherming (AVG) in de Europese Unie, die strenge eisen stelt aan gegevensverwerking en privacy.
+\end{itemize}
+
+\subsection{Beveiligingsrisico's}
+
+Bij het integreren van kalender-API's ontstaan diverse beveiligingsrisico's, waaronder:
+
+\begin{itemize}
+    \item \textbf{Datalekken:} Ongeautoriseerde toegang tot gegevens kan leiden tot lekken van persoonlijke informatie, met potentieel ernstige gevolgen voor gebruikers en bedrijven.
+    \item \textbf{Cross-Site Scripting (XSS)\footnote{https://owasp.org/www-community/attacks/xss/}:} Aanvallers kunnen schadelijke scripts injecteren via kalenderinvoeren die vervolgens worden uitgevoerd in de browsers van andere gebruikers.
+    \item \textbf{Man-in-the-Middle Aanvallen:} Onvoldoende beveiligde API-aanroepen kunnen aanvallers de mogelijkheid bieden om gegevensoverdrachten te onderscheppen.
+    \item \textbf{API Misbruik:} Onjuiste implementatie van API-limieten en -controles kan leiden tot misbruik, wat resulteert in denial-of-service aanvallen of ongeplande kosten.
+\end{itemize}
+
+Om deze risico's te mitigeren, is het belangrijk om de volgende maatregelen toe te passen:
+
+\begin{itemize}
+    \item \textbf{Beveiligingstests:} Regelmatig uitvoeren van penetratietests en veiligheidsscans om kwetsbaarheden te identificeren en te verhelpen.
+    \item \textbf{API-beveiligingsgateways:} Gebruik van gespecialiseerde software of hardware die API-verzoeken controleert en reguleert om misbruik en aanvallen te voorkomen.
+    \item \textbf{Rate Limiting en Quota's:} Implementeren van beperkingen op het aantal API-aanroepen dat kan worden gedaan door een enkele gebruiker of entiteit binnen een bepaald tijdsbestek.
+    \item \textbf{Voortdurende Monitoring:} Continu monitoren van API-gebruik en toegangspatronen om ongebruikelijke activiteiten snel te detecteren en aan te pakken.
+\end{itemize}

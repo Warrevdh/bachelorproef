@@ -1,0 +1,54 @@
+%%=============================================================================
+%% Samenvatting
+%%=============================================================================
+
+% thesis) synthese van het document.
+%
+% Een goede abstract biedt een kernachtig antwoord op volgende vragen:
+%
+% 1. Waarover gaat de bachelorproef?
+% 2. Waarom heb je er over geschreven?
+% 3. Hoe heb je het onderzoek uitgevoerd?
+% 4. Wat waren de resultaten? Wat blijkt uit je onderzoek?
+% 5. Wat betekenen je resultaten? Wat is de relevantie voor het werkveld?
+%
+% Daarom bestaat een abstract uit volgende componenten:
+%
+% - inleiding + kaderen thema
+% - probleemstelling
+% - (centrale) onderzoeksvraag
+% - onderzoeksdoelstelling
+% - methodologie
+% - resultaten (beperk tot de belangrijkste, relevant voor de onderzoeksvraag)
+% - conclusies, aanbevelingen, beperkingen
+%
+% LET OP! Een samenvatting is GEEN voorwoord!
+
+%%---------- Nederlandse samenvatting -----------------------------------------
+%
+% Nederlandse samenvatting invoegen. Haal daarvoor onderstaande code uit
+% commentaar.
+% Wie zijn bachelorproef in het Nederlands schrijft, kan dit negeren, de inhoud
+% wordt niet in het document ingevoegd.
+
+% \IfLanguageName{english}{%
+% \selectlanguage{dutch}
+% \chapter*{Samenvatting}
+% \lipsum[1-4]
+% \selectlanguage{english}
+% }{}
+
+%%---------- Samenvatting -----------------------------------------------------
+% De samenvatting in de hoofdtaal van het document
+
+\chapter*{\IfLanguageName{dutch}{Samenvatting}{Abstract}}
+
+Deze bachelorproef richt zich op de integratie van diverse kalender-API's zoals Google Calendar, Calendly, en Microsoft Calendar in één uniforme applicatie en evalueert de impact daarvan op de gebruikerservaring. Het onderzoek stelt als doel om nieuwe methoden te ontwikkelen die zowel de efficiëntie als de gebruiksvriendelijkheid van deze integratie verbeteren, een uitdaging die steeds relevanter wordt naarmate meer organisaties streven naar een geïntegreerde digitale werkomgeving.
+
+De methodologie van dit onderzoek omvat het ontwikkelen van een Proof of Concept (PoC), die gebruik maakt van moderne webtechnologieën zoals ReactJS, samen met backend-integraties via Node.js. De PoC implementeert functionele verbindingen met de genoemde kalenderdiensten, en biedt een real-time dashboard voor het beheren en synchroniseren van kalenderdata over deze verschillende platforms heen.
+
+Uit de analyse van de gebruikerstesten en technische evaluaties blijkt dat de integratie van de kalender-API's significant bijdraagt aan een verbeterde gebruikerservaring door de interactie en dataconsistentie te vereenvoudigen. Echter, de studie identificeert ook uitdagingen zoals prestatiebeperkingen en complexiteit in data synchronisatie, die de algehele effectiviteit kunnen beïnvloeden.
+
+De resultaten van dit onderzoek bieden waardevolle inzichten voor ontwikkelaars en organisaties zoals TurnUp, die streven naar efficiëntere en gebruikersvriendelijkere integratiesystemen. De studie benadrukt het belang van zorgvuldige planning en het testen van interface ontwerp om te zorgen voor een naadloze integratie-ervaring.
+
+Toekomstig werk kan zich richten op het uitbreiden van de functionaliteit van de PoC, het verbeteren van de prestaties en het verder personaliseren van de gebruikersinterface. Ook kan verder onderzoek naar geavanceerde authenticatie- en beveiligingsprotocollen voor API-integraties nuttig zijn om de betrouwbaarheid en veiligheid van de geïntegreerde systemen te waarborgen.

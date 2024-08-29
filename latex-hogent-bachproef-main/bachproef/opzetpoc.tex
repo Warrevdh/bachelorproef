@@ -1,0 +1,307 @@
+\chapter{Opzet Proof of Concept}%
+\label{ch:proof-of-concept}
+\section{Inleiding}
+Deze Proof of Concept (PoC) illustreert de integratie van verschillende kalenderdiensten door middel van een geïntegreerd dashboard dat gebruik maakt van de API's van Google Calendar, Calendly, en Microsoft Calendar. Het doel van deze PoC is om de functionaliteit van deze API's te demonstreren en te onderzoeken hoe verschillende kalenderplatforms kunnen worden gecombineerd om een naadloze gebruikerservaring te bieden.
+
+De PoC kan opgedeeld worden in drie verschillende projecten:
+\begin{enumerate}
+    \item \textbf{Google Calendar Integratie:} Dit deel van het project richt zich op het implementeren van de Google Calendar API om evenementen op te halen en aan te maken. Het doel is om de functionaliteiten van Google Calendar naadloos te integreren in een universeel dashboard dat ook interacties met andere kalendersystemen mogelijk maakt.
+    
+    \item \textbf{Calendly Integratie:} Hierbij wordt de Calendly API gebruikt om gebruikers in staat te stellen hun Calendly-evenementen te beheren via hetzelfde dashboard.
+    
+    \item \textbf{Microsoft Calendar Integratie:} Het derde deel van de PoC betreft de integratie van de Microsoft Calendar API. Het doel is om Microsoft's kalenderdiensten te koppelen aan het dashboard en te zorgen voor een geïntegreerde weergave en beheer van evenementen over verschillende platforms heen.
+\end{enumerate}
+
+Elk van deze projectonderdelen is ontworpen om specifieke uitdagingen en mogelijkheden binnen de kalenderintegratie te verkennen. Het uiteindelijke doel is om een duidelijk beeld te krijgen van hoe verschillende API's kunnen worden gecombineerd om een meer verbonden en gebruiksvriendelijke omgeving voor eindgebruikers te creëren. 
+
+
+\section{Business Voordelen van de Proof of Concept}
+
+De integratie van verschillende kalender-API's zoals Google Calendar, Calendly, en Microsoft Calendar binnen één gecentraliseerd dashboard biedt aanzienlijke zakelijke voordelen die de efficiëntie en productiviteit binnen organisaties kunnen verbeteren. Deze sectie onderzoekt hoe deze integratie kan bijdragen aan het oplossen van dagelijkse zakelijke uitdagingen en het ondersteunen van bedrijfsdoelstellingen.
+
+\subsection{Operationele Efficiëntie}
+
+Door verschillende kalendersystemen te integreren, vermindert de PoC de behoefte aan meerdere aparte tools en platforms, wat leidt tot een verlaging van zowel de kosten als de complexiteit van het systeembeheer. Dit vereenvoudigt de workflow aanzienlijk, omdat gebruikers niet langer hoeven te schakelen tussen verschillende applicaties om hun afspraken te beheren, maar in plaats daarvan een overzicht hebben van al hun verplichtingen in één interface. Deze verbeterde efficiëntie kan leiden tot een snellere reactietijd op marktveranderingen en een meer agile organisatiestructuur.
+
+\subsection{Verbeterde Samenwerking}
+
+Een centraal dashboard voor kalenderbeheer faciliteert betere communicatie en samenwerking binnen teams en afdelingen. Door het gemakkelijker delen van kalendergegevens kunnen teams effectiever samenwerken en de coördinatie van vergaderingen en evenementen verbeteren. Dit is vooral waardevol in een omgeving waar samenwerking cruciaal is voor het succes van projecten en initiatieven. Bovendien helpt deze integratie bij het vermijden van dubbele boekingen en andere planningconflicten, wat leidt tot een soepelere organisatie van gezamenlijke activiteiten.
+
+\subsection{Verhoogde Gebruikerstevredenheid}
+
+Door een gebruikersvriendelijke interface aan te bieden die naadloos verschillende kalenderdiensten integreert, verbetert de PoC de algemene gebruikerservaring. Tevreden gebruikers zijn vaak productiever en meer betrokken bij hun werk, wat direct bijdraagt aan het bedrijfssucces. De mogelijkheid om intuïtief kalenders te beheren en te synchroniseren zonder technische hindernissen kan ook de werknemerstevredenheid verhogen en de leercurve voor nieuwe software verminderen.
+
+
+\section{Technische Specificaties}
+
+\subsection{Algemene Implementatie}
+De PoC is opgedeeld in drie onderscheidende projecten, elk ontwikkeld met ReactJS, een populaire JavaScript-bibliotheek die specifiek ontworpen is voor het bouwen van dynamische gebruikersinterfaces. ReactJS werd gekozen vanwege zijn component-gebaseerde architectuur, die niet alleen het hergebruik van code stimuleert maar ook het beheer van de applicatiestaat aanzienlijk vereenvoudigt. Deze architectuur maakt het mogelijk om complexe interfaces te ontwikkelen door middel van onafhankelijke, herbruikbare componenten die elk hun eigen logica en staat bevatten.
+
+\subsubsection{Voordelen van Component-Based Architecture}
+De keuze voor ReactJS en zijn component-gebaseerde aanpak biedt meerdere voordelen:
+\begin{itemize}
+    \item \textbf{Modulariteit:} De applicatie is opgebouwd uit kleine, beheersbare stukken functionaliteit, die elk als aparte componenten worden ontwikkeld. Dit vergemakkelijkt zowel de ontwikkeling als het onderhoud door een duidelijke scheiding van verantwoordelijkheden.
+    \item \textbf{Herbruikbaarheid:} Componenten kunnen gemakkelijk worden hergebruikt binnen verschillende delen van de applicatie of zelfs in andere projecten, wat leidt tot een snellere ontwikkeling en minder code duplicatie.
+    \item \textbf{Staatbeheer:} React’s staatbeheer maakt het eenvoudig om een consistente staat over de hele applicatie te behouden, wat cruciaal is voor functies die afhankelijk zijn van gebruikersinteracties en data updates.
+\end{itemize}
+
+\subsubsection{Implementatie Details}
+Elk onderdeel van de PoC werd ontworpen om te functioneren als een standalone applicatie, terwijl het ook naadloos integreert met de anderen door middel van gezamenlijke state management en datauitwisseling. De volgende aspecten werden in acht genomen tijdens de ontwikkeling:
+\begin{itemize}
+    \item \textbf{Setup en Configuratie:} De projecten zijn geïnitialiseerd met behulp van Create React App, een geautomatiseerd setup script dat de basisconfiguratie van een React-applicatie opzet, inclusief ontwikkeltools zoals Webpack en Babel.
+    \item \textbf{Routing en Navigatie:} React Router werd ingezet om navigatie tussen verschillende views en componenten binnen de applicaties te beheren, waardoor een vloeiende en interactieve gebruikerservaring wordt geboden.
+    \item \textbf{State Management:} Voor complexer staatbeheer dat tussen meerdere componenten gedeeld wordt, werd gebruik gemaakt van Redux. Dit stelde de ontwikkelaars in staat om de applicatiestaat op een voorspelbare manier te beheren en te updaten.
+\end{itemize}
+
+Deze technische specificaties tonen aan hoe ReactJS niet alleen een krachtige tool is voor het bouwen van gebruikersinterfaces, maar ook hoe het helpt bij het structureren van een complexe applicatie op een beheersbare en efficiënte manier.
+
+\subsection{React}
+ReactJS\footnote{https://react.dev/}, ontwikkeld door Facebook (nu Meta Platforms, Inc.), is een toonaangevende open-source JavaScript-bibliotheek die is ontworpen voor het ontwikkelen van gebruikersinterfaces, vooral voor single-page applicaties \autocite{React2024}. Het stelt ontwikkelaars in staat complexe gebruikersinterfaces efficiënt te bouwen door gebruik te maken van herbruikbare codecomponenten, bekend als 'components'.
+
+\subsection{Kernfuncties van ReactJS}
+
+\subsubsection{Component-Based Architecture}
+React promoot een architectuur die gebaseerd is op componenten, waarbij elke component functioneert als een onafhankelijke entiteit met zijn eigen logica en controle over zijn staat. Deze aanpak vereenvoudigt zowel de ontwikkeling als het onderhoud van de applicatie, omdat componenten hergebruikt kunnen worden en gemakkelijk aan te passen zijn zonder dat andere delen van de applicatie hierdoor beïnvloed worden \autocite{React2024}.
+
+\subsubsection{Declarative Views}
+React maakt gebruik van een declaratieve programmeerstijl die helpt om de applicatiecode intuïtief en voorspelbaar te maken. Deze stijl verhoogt niet alleen de leesbaarheid van de code, maar vergemakkelijkt ook het debuggen en onderhouden van de applicatie doordat de ontwikkeling zich kan concentreren op 'wat' de UI moet doen, niet 'hoe' de UI dit moet bereiken \autocite{React2024}.
+
+\subsubsection{Virtual DOM}
+React introduceert een krachtige optimalisatiestrategie genaamd Virtual DOM, waarbij een lichtgewicht kopie van de DOM in het geheugen wordt bewaard. React detecteert verschillen tussen de echte DOM en de Virtual DOM wanneer er wijzigingen zijn, en past alleen de noodzakelijke veranderingen toe in de echte DOM. Dit minimaliseert de interactie met de DOM, een dure operatie, en verbetert daardoor de prestaties en de reactiesnelheid van de applicatie \autocite{React2024}.
+
+\subsubsection{JSX}
+JSX is een uitbreiding van de JavaScript-syntax die React gebruikt om componentlogica te vermengen met de UI-structuur. Deze syntaxis lijkt sterk op HTML, wat het voor ontwikkelaars gemakkelijker maakt om UI-componenten te ontwerpen die zowel markup als de bijbehorende logica bevatten. JSX maakt de code overzichtelijker en eenvoudiger te begrijpen, vooral bij het bouwen van complexe interfaces \autocite{React2024}.
+
+\subsubsection{Unidirectional Data Flow}
+React volgt een unidirectioneel dataflow-model dat een lineaire datastroom door de componenthiërarchie garandeert. Dit vereenvoudigt het beheer van de applicatiestaat en voorkomt veelvoorkomende fouten die voorkomen in bidirectionele data-binding frameworks. Data heeft een enkele, duidelijke stroom, wat het gemakkelijker maakt om de applicatie te redeneren en te debuggen \autocite{React2024}.
+
+\subsubsection{Ecosysteem en Tools}
+Het React-ecosysteem biedt een scala aan tools en bibliotheken die de ontwikkeling verder vergemakkelijken:
+\begin{itemize}
+    \item \textbf{Redux} is een bibliotheek voor state management die helpt bij het beheren van de applicatiestaat buiten de lokale staat van React-componenten, waardoor complexe applicaties eenvoudiger te beheren zijn.
+    \item \textbf{React Router} wordt gebruikt voor declaratieve navigatie in de applicatie, wat helpt bij het efficiënt beheren van routes in single-page applicaties.
+    \item \textbf{Create React App} is een officieel ondersteunde set van scripts om de initiële setup en configuratie van een nieuwe React-applicatie te automatiseren, waardoor ontwikkelaars snel kunnen starten zonder zich zorgen te maken over de opzet van de ontwikkelomgeving.
+\end{itemize}
+
+\subsection{Google Calendar Integratie}
+De integratie met Google Calendar is gebaseerd op de Google Calendar API Quickstart repository. Deze implementatie biedt een directe methode om evenementen te bekijken en toe te voegen aan de Google Calendar van een gebruiker.
+\begin{itemize}
+    \item \textbf{Bron}: \href{https://github.com/googleworkspace/browser-samples/tree/main/calendar/quickstart}{Google Quickstart Repository}
+\end{itemize}
+
+\subsection{Microsoft Outlook Calendar Integratie}
+Voor Microsoft Outlook Calendar is de integratie gebaseerd op een voorbeeld van Microsoft Azure, specifiek ontworpen voor single-page applicaties (SPA's) die gebruik maken van Microsoft Identity voor authenticatie.
+\begin{itemize}
+    \item \textbf{Bron}: \href{https://github.com/Azure-Samples/ms-identity-docs-code-javascript/tree/main/react-spa}{Microsoft Azure Repository}
+\end{itemize}
+
+\subsection{Calendly Integratie}
+De integratie met Calendly is ontwikkeld met behulp van een sample application die de Calendly API gebruikt. Deze sample demonstreert hoe Calendly's scheduling functionaliteiten kunnen worden geïntegreerd binnen andere applicaties.
+\begin{itemize}
+    \item \textbf{Bron}: \href{https://github.com/calendly/buzzwordcrm}{Calendly Sample Application}
+\end{itemize}
+
+
+\subsection{Implementatiedetails van de Proof of Concept}
+Deze sectie bevat de implementatiedetails voor de integratie van Google Calendar, Calendly en Microsoft Calendar API's binnen een ReactJS-omgeving.
+
+\subsubsection{Google Calendar Integratie}
+
+De volgende code toont hoe de Google Calendar API wordt aangesproken om evenementen op te halen:
+
+\begin{verbatim}    
+async function listUpcomingEvents() {
+    try {
+        const response = await window.gapi.client.calendar.events.list({
+            calendarId: "primary",
+            timeMin: new Date().toISOString(),
+            showDeleted: false,
+            singleEvents: true,
+            maxResults: 10,
+            orderBy: "startTime",
+        });
+        
+        const events = response.result.items;
+        if (!events || events.length === 0) {
+            setContent("No events found.");
+            return;
+        }
+        const output = events.reduce(
+        (str, event) =>
+        `${str}${event.summary} (${
+            event.start.dateTime || event.start.date
+        })\n`,
+        "Events:\n"
+        );
+        setContent(output);
+    } catch (err) {
+        setContent(err.message);
+    }
+}
+\end{verbatim}
+
+\subsubsection{Calendly Integratie}
+
+Voor de integratie met Calendly werd de volgende functie gebruikt om gebruikersafspraken op te halen:
+
+\begin{verbatim}
+import axios from "axios";
+
+const apiClient = axios.create({
+    baseURL: "https://api.calendly.com",
+    headers: {
+        Authorization: `Bearer ${localStorage.getItem("calendly_access_token")}`,
+    },
+});
+
+export const getScheduledEvents = async () => {
+    const user = localStorage.getItem("calendly_user");
+    const response = await apiClient.get(`/scheduled_events?user=${user}`);
+    console.log(response.data);
+    return response.data;
+};
+\end{verbatim}
+
+\subsubsection{Microsoft Calendar Integratie}
+
+Hier is een voorbeeld van hoe Microsoft Calendar API gebruikt wordt:
+
+\begin{verbatim}
+import { graphConfig } from "./AuthConfig";
+    
+export async function callCalendar(accessToken) {
+    const headers = new Headers();
+    const bearer = `Bearer ${accessToken}`;
+    
+    headers.append("Authorization", bearer);
+    
+    const options = {
+        method: "GET",
+        headers: headers,
+    };
+    
+    return fetch(graphConfig.graphMeEndpoint +    "/calendar/events", options)
+    .then((response) => response.json())
+    .catch((error) => console.log(error));
+}
+\end{verbatim}
+
+\section{Uitdagingen en Oplossingen}
+
+Tijdens de ontwikkeling van de Proof of Concept kwamen verschillende uitdagingen aan het licht, elk met betrekking tot de specifieke eisen en beperkingen van de gebruikte API's. Hieronder worden deze uitdagingen en de toegepaste oplossingen beschreven.
+
+\subsection{Google Calendar}
+
+\subsubsection{Uitdaging}
+De integratie van Google Calendar binnen de applicatie stelde aanzienlijke uitdagingen met betrekking tot het juist configureren van API-scopes op het Google Developer Platform. Deze scopes zijn cruciaal voor het bepalen van de toegangsniveaus tot gebruikersgegevens. Een incorrecte configuratie kan leiden tot onvoldoende toegang, waardoor essentiële functionaliteiten binnen de applicatie niet functioneren, of tot excessieve toegangsrechten, wat privacyzorgen kan veroorzaken.
+
+\subsubsection{Oplossing}
+De oplossing vereiste een gedetailleerde en zorgvuldige benadering:
+\begin{itemize}
+    \item \textbf{Grondige Documentatiestudie:} Een grondige doorname van Google's API-documentatie werd uitgevoerd om een volledig begrip te krijgen van de verschillende beschikbare scopes en hun specifieke functies.
+    \item \textbf{Selectie van Scopes:} Nauwkeurige selectie van de benodigde API-scopes werd gemaakt, afgestemd op de specifieke operationele vereisten. Dit omvatte scopes voor het lezen van kalendergebeurtenissen, het bewerken van kalenders, en het beheren van instellingen, afhankelijk van de functionaliteiten die geïmplementeerd moesten worden.
+    \item \textbf{Configuratie in Google Developer Console:} De geselecteerde scopes werden nauwkeurig ingesteld in de Google Developer Console waar de applicatie geregistreerd was. Elk scope werd zorgvuldig gedefinieerd om zowel functionaliteit als gegevensbeveiliging te garanderen.
+    \item \textbf{Testen en Valideren:} Uitgebreide tests werden uitgevoerd na het instellen van de scopes om te verzekeren dat de applicatie correct toegang kreeg tot de Google Calendar data zonder privacyregels te overtreden. Dit hielp bij het identificeren en aanpassen van eventuele configuratiefouten.
+\end{itemize}
+
+Dankzij deze methodische aanpak werd de nodige integratie van Google Calendar binnen de applicatie effectief en veilig gerealiseerd, wat de bruikbaarheid en functionaliteit aanzienlijk verbeterde. Het zorgvuldig beheren van API-scopes demonstreerde een toewijding aan het beschermen van gebruikersgegevens, wat cruciaal is voor het opbouwen van vertrouwen en betrouwbaarheid in digitale applicaties.
+
+
+\subsection{Calendly}
+
+\subsubsection{Uitdaging}
+De integratie van de Calendly API bracht specifieke technische beperkingen aan het licht, met name de rate limiting uitdagingen. Calendly stelt strikte limieten aan het aantal API-aanroepen dat binnen een bepaalde periode kan worden gemaakt om overbelasting van hun systemen te voorkomen. Bij het testen van onze applicatie werden deze limieten snel bereikt, wat resulteerde in foutmeldingen en onderbrekingen van de service. Deze beperkingen beïnvloedden de functionaliteit van onze applicatie, vooral tijdens piekgebruik wanneer meerdere gebruikers tegelijkertijd acties probeerden uit te voeren die API-aanroepen vereisten.
+
+\subsubsection{Oplossing}
+De primaire aanpak om dit probleem te adresseren was het aanpassen van de frequentie van automatische data-aanvragen. In plaats van voortdurend gegevens te synchroniseren op een set interval, werd een meer gebruikersgestuurde methode geïmplementeerd:
+\begin{itemize}
+    \item \textbf{Handmatige Data-Aanvragen:} Er werd een functionaliteit geïntroduceerd waarbij gebruikers zelf kunnen kiezen wanneer ze hun data synchroniseren, door een knop in het dashboard te gebruiken. Deze aanpak stelt gebruikers in staat om volledige controle te hebben over het synchronisatieproces en vermindert het risico op het bereiken van de rate limit.
+\end{itemize}
+
+Deze aanpassingen zorgden voor een efficiënter gebruik van de Calendly API en verminderden de kans op fouten als gevolg van rate limiting. Bovendien zorgde het geven van meer controle aan de gebruiker voor een verbeterde gebruikerservaring, omdat zij nu de flexibiliteit hadden om gegevens op te halen op momenten die voor hen het meest relevant zijn.
+
+
+\begin{verbatim}
+    const AvailabilitySchedules = () => {
+        const [schedules, setSchedules] = useState([]);
+        const [loading, setLoading] = useState(false);
+        const [error, setError] = useState("");
+        
+        const fetchData = async () => {
+            setLoading(true);
+            setError("");
+            try {
+                const data = await getUserAvailabilitySchedules();
+                setSchedules(data.collection);
+                setLoading(false);
+            } catch (err) {
+                setError("Failed to fetch availability schedules. Please try again.");
+                setLoading(false);
+            }
+        };
+        
+        return (
+        <div className="p-4 bg-white shadow rounded-lg">
+        <h2 className="text-xl font-bold mb-2">Availability Schedules</h2>
+        {schedules.length > 0 ? (
+            <ul>
+            {schedules.map((schedule) => (
+                <li key={schedule.uri} className="mb-2">
+                <strong>{schedule.name}</strong>
+                <ul className="ml-4 mt-1">
+                {schedule.rules.map((rule, index) => (
+                    <li key={index}>
+                    {rule.wday.charAt(0).toUpperCase() + rule.wday.slice(1)}:
+                    {rule.intervals.length > 0
+                        ? rule.intervals.map((interval, idx) => (
+                        <span key={idx} className="ml-2">
+                        ({interval.from} - {interval.to})
+                        </span>
+                        ))
+                        : " Not available"}
+                    </li>
+                    ))}
+                </ul>
+                </li>
+                ))}
+            </ul>
+            ) : (
+            <div>
+            {loading ? (
+                <p>Loading...</p>
+                ) : (
+                <button
+                onClick={fetchData}
+                className="bg-blue-500 text-white p-2 rounded"
+                >
+                Fetch Schedules
+                </button>
+                )}
+            {error && <p className="text-red-500 mt-2">{error}</p>}
+            </div>
+            )}
+        </div>
+        );
+    };
+\end{verbatim}
+
+\subsection{Microsoft Calendar}
+
+\subsubsection{Uitdaging}
+De integratie van Microsoft Calendar vereiste een initiële configuratie en setup binnen het Microsoft Azure platform. Dit was essentieel om de juiste credentials te verkrijgen die veilige communicatie met de Microsoft API mogelijk maken. Het proces vereiste een gedetailleerd begrip van Azure's authenticatiemechanismen, gezien de complexiteit en de strenge veiligheidsvereisten van het platform.
+
+\subsubsection{Oplossing}
+De oplossing voor deze integratie-uitdaging omvatte het zorgvuldig opzetten van een Azure-account, de eerste stap in het toegankelijk maken van Microsoft's cloud-diensten. Vervolgens was de registratie van de applicatie bij het Microsoft Identity Platform cruciaal. Dit proces omvatte:
+\begin{itemize}
+    \item \textbf{Registratie van de Applicatie:} Navigeren door de Azure Portal naar de "App registrations" sectie om de nieuwe applicatie aan te melden, inclusief het invullen van basisinformatie zoals de naam en verwachte functionaliteiten.
+    \item \textbf{Instellen van Redirect URI's:} Het configureren van de juiste Redirect URI's die worden gebruikt als onderdeel van de OAuth authenticatieflow was essentieel. Deze URI's zorgen ervoor dat de authenticatierespons van Azure correct wordt teruggestuurd naar de applicatie.
+    \item \textbf{Verkrijgen van Credentials:} Na de registratie werden de Application (client) ID en Directory (tenant) ID ontvangen. Deze identifiers zijn cruciaal omdat ze de applicatie uniek identificeren binnen het Azure-ecosysteem en worden gebruikt om authenticatieverzoeken te valideren.
+    \item \textbf{Toestemmingsconfiguratie:} Het instellen van de nodige API-toestemmingen binnen de Azure Portal om toegang te krijgen tot Microsoft Calendar data was noodzakelijk, inclusief het definiëren van scopes en toestemmingen die de applicatie toestaan om namens de gebruiker te handelen.
+\end{itemize}
+Dit gedetailleerde en nauwgezette proces zorgde ervoor dat de applicatie veilig en effectief kon integreren met Microsoft Calendar, waardoor gebruikers hun Microsoft-agenda's efficiënt konden beheren en synchroniseren.
+
+\subsubsection{Technische en Praktische Overwegingen}
+Naast de technische setup was het aanpassen van de gebruikersinterface van de PoC essentieel om de integratie naadloos en intuïtief te maken. Dit betrof de ontwikkeling van een eenvoudige, gebruiksvriendelijke interface die gebruikers in staat stelt om snel en effectief hun Microsoft-agenda-gegevens te synchroniseren en te beheren, terwijl tegelijkertijd de krachtige functies van Microsoft Calendar werden benut. De gebruikerservaring werd consistent gehouden met de rest van de PoC, waardoor de integratie verbeterde en de gebruikersacceptatie toenam.
+
+
+
